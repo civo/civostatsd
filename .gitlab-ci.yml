@@ -29,7 +29,6 @@ stages:
 compile:
   stage: build
   script:
-    - cd $CURRENT_BUILD_PATH
     - go build
   only:
     - master
@@ -40,5 +39,4 @@ compile:
 test:
   stage: test
   script:
-    - cd $CURRENT_BUILD_PATH
     - go test
