@@ -40,3 +40,7 @@ test:
   stage: test
   script:
     - go test
+  only:
+    - master
+  tags:
+    - docker
