@@ -2,7 +2,6 @@
 
 [![Build Status](https://img.shields.io/travis/absolutedevops/civostatsd.svg?style=flat-square&label=build)](https://travis-ci.org/absolutedevops/civostatsd)
 
-
 This utility is a small Go application that runs in the background on Civo instances, collecting CPU, disk and memory
 usage and reporting them back to the Civo API so that they can be reported on in the control panel.  It's open-source
 because we don't want users to think we're doing something underhanded and if you like, you can simply completely
