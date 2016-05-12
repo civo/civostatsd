@@ -1,0 +1,21 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"path": "github.com/c9s/goprocinfo.git",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "Bebs5yU8hN+EId54QSTEyoVej7U=",
+			"path": "github.com/cloudfoundry/gosigar",
+			"revision": "e949f427d77a939c605a87205a56b84434bc29e5",
+			"revisionTime": "2016-04-26T15:09:42Z"
+		},
+		{
+			"path": "https://github.com/c9s/goprocinfo.git",
+			"revision": ""
+		}
+	],
+	"rootPath": "git.absolutedevops.io/internal/civostatsd"
+}

@@ -18,4 +18,7 @@ civostatsd --uninstall
 
 ## Internals
 
-To be documented as they're decided...
+Every minute the daemon looks up the current CPU usage (as an overall percentage), the memory usage (excluding caches)
+and the disk usage and sends them all over HTTPS to the Civo API using the unique token stored in `/etc/civostatsd.json`.
+
+It retrieves the stats using CloudFoundry's [gosigar](https://github.com/cloudfoundry/gosigar) library.
