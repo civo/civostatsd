@@ -8,7 +8,6 @@ env:
   - CGO_ENABLED=0
 
 install:
-  - go get -t ./...
   - go get github.com/golang/lint/golint
   - go get github.com/gordonklaus/ineffassign
 
@@ -17,6 +16,7 @@ script:
   - ineffassign .
   - go vet ./...
   - go test ./...
+  - go run civostatsd.go --test
 
 after_script:
   - golint ./...
