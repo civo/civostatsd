@@ -69,9 +69,9 @@ Vagrant.configure(2) do |config|
     sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
     sudo apt-get update
     sudo apt-get install -y aptitude golang
-    mkdir -p /home/vagrant/go/src/git.absolutedevops.io/internal/
-    ln -s /vagrant /home/vagrant/go/src/git.absolutedevops.io/internal/civostatsd
+    mkdir -p /home/vagrant/go/src/github.com/absolutedevops/
+    ln -s /vagrant /home/vagrant/go/src/github.com/absolutedevops/civostatsd
     echo "export GOPATH=~/go" >> /home/vagrant/.bash_profile
-    echo "cd /home/vagrant/go/src/git.absolutedevops.io/internal/civostatsd" >> /home/vagrant/.bash_profile
+    echo "cd /home/vagrant/go/src/github.com/absolutedevops/civostatsd" >> /home/vagrant/.bash_profile
   SHELL
 end

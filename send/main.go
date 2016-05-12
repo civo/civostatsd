@@ -1,7 +1,7 @@
 package send
 
 import (
-	"git.absolutedevops.io/internal/civostatsd/gather"
+	"github.com/absolutedevops/civostatsd/gather"
 )
 
 func ToAPI(s gather.Stats) {

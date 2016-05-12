@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"time"
 
-	"git.absolutedevops.io/internal/civostatsd/gather"
-	"git.absolutedevops.io/internal/civostatsd/send"
+	"github.com/absolutedevops/civostatsd/gather"
+	"github.com/absolutedevops/civostatsd/send"
 )
 
 var (

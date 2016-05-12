@@ -17,5 +17,5 @@
 			"revision": ""
 		}
 	],
-	"rootPath": "git.absolutedevops.io/internal/civostatsd"
+	"rootPath": "github.com/absolutedevops/civostatsd"
 }
