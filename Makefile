@@ -12,4 +12,4 @@ all:
 	go build ${LDFLAGS} -o ${BINARY} main.go
 test:
 	make all
-	./civostatsd --test
+	./civostatsd --test --config civostatsd-dummy.conf
