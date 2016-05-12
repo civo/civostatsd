@@ -9,11 +9,9 @@ env:
 
 install:
   - go get github.com/golang/lint/golint
-  - go get github.com/gordonklaus/ineffassign
 
 script:
   - diff <(echo -n) <(gofmt -s -d .)
-  - ineffassign .
   - go vet ./...
   - go test ./...
   - go run civostatsd.go --test
