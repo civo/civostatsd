@@ -3,25 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"os"
 	"os/signal"
 	"time"
 
-	"github.com/BurntSushi/toml"
+	"github.com/absolutedevops/civostatsd/config"
 	"github.com/absolutedevops/civostatsd/gather"
 	"github.com/absolutedevops/civostatsd/send"
 )
-
-var (
-	Version   string
-	BuildTime string
-)
-
-type Config struct {
-	Server string
-	Token  string
-}
 
 func main() {
 	var configFile string
@@ -31,28 +20,18 @@ func main() {
 	flag.BoolVar(&testMode, "test", false, "run a single iteration as a test")
 	flag.Parse()
 
-	fmt.Println(configFile)
-	_, err := os.Stat(configFile)
-	if err != nil {
-		log.Fatal("Config file is missing: ", configFile)
-	}
+	configuration := config.Load(configFile)
 
-	var config Config
-	if _, err := toml.DecodeFile(configFile, &config); err != nil {
-		log.Fatal(err)
-	}
-
-	ticker := time.NewTicker(5 * time.Second)
+	ticker := time.NewTicker(60 * time.Second)
 	death := make(chan os.Signal, 1)
 	signal.Notify(death, os.Interrupt, os.Kill)
 
-	fmt.Println("Civostatsd")
-	fmt.Println("Version/Build   : v" + Version + " (" + BuildTime + ")")
-	fmt.Println("Using API server: " + config.Server)
-	fmt.Println("Using Token:      " + config.Token)
+	fmt.Println("Civostatsd v0.9")
+	fmt.Println("Using API server: " + configuration.Server)
+	fmt.Println("Using Token:      " + configuration.Token)
 
 	stats := gather.All()
-	send.ToAPI(stats)
+	send.ToAPI(configuration, stats)
 
 	if testMode {
 		fmt.Println(stats.String())
@@ -64,7 +43,7 @@ func main() {
 		case <-ticker.C:
 			stats := gather.All()
 			fmt.Println(stats.String())
-			send.ToAPI(stats)
+			send.ToAPI(configuration, stats)
 		case <-death:
 			os.Exit(0)
 		}
