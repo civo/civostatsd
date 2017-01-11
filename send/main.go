@@ -22,7 +22,8 @@ func ToAPI(configuration config.Config, s gather.Stats) {
 	form.Add("disk", fmt.Sprintf("%f", s.Disk))
 	req, err := http.NewRequest("POST", endpoint, strings.NewReader(form.Encode()))
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
-	_, err = hc.Do(req)
+	resp, err := hc.Do(req)
+	defer resp.Body.Close()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
