@@ -2,13 +2,16 @@ package gather
 
 import "fmt"
 
+// Stats is to save all stats
 type Stats struct {
-	CPU    float32
+	CPU    float64
 	Disk   float32
 	Memory float32
 }
 
+// All function to get all stats from the system
 func All() Stats {
+
 	stats := Stats{
 		CPU:    usedCPU(),
 		Disk:   usedDisk(),

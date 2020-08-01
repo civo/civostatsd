@@ -6,10 +6,11 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/absolutedevops/civostatsd/config"
-	"github.com/absolutedevops/civostatsd/gather"
+	"github.com/civo/civostatsd/config"
+	"github.com/civo/civostatsd/gather"
 )
 
+// ToAPI functio to send data to the api
 func ToAPI(configuration config.Config, s gather.Stats) {
 	endpoint := configuration.Server + "/civostatsd"
 	// Post a form containing config.token as token, s.CPU as cpu, s.Memory as memory and s.Disk as disk

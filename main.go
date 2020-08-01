@@ -7,9 +7,9 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/absolutedevops/civostatsd/config"
-	"github.com/absolutedevops/civostatsd/gather"
-	"github.com/absolutedevops/civostatsd/send"
+	"github.com/civo/civostatsd/config"
+	"github.com/civo/civostatsd/gather"
+	"github.com/civo/civostatsd/send"
 )
 
 func main() {
