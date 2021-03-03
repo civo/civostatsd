@@ -18,14 +18,18 @@ func ToAPI(configuration config.Config, s gather.Stats) {
 	hc := http.Client{}
 	form := url.Values{}
 	form.Add("token", configuration.Token)
+	form.Add("region", configuration.Region)
 	form.Add("cpu", fmt.Sprintf("%f", s.CPU))
 	form.Add("memory", fmt.Sprintf("%f", s.Memory))
 	form.Add("disk", fmt.Sprintf("%f", s.Disk))
+
 	req, err := http.NewRequest("POST", endpoint, strings.NewReader(form.Encode()))
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+
 	resp, err := hc.Do(req)
-	defer resp.Body.Close()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+
+	defer resp.Body.Close()
 }

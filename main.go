@@ -26,9 +26,10 @@ func main() {
 	death := make(chan os.Signal, 1)
 	signal.Notify(death, os.Interrupt, os.Kill)
 
-	fmt.Println("Civostatsd v2.0")
+	fmt.Println("Civostatsd v2.1")
 	fmt.Println("Using API server: " + configuration.Server)
 	fmt.Println("Using Token:      " + configuration.Token)
+	fmt.Println("Using Region:     " + configuration.Region)
 
 	stats := gather.All()
 	send.ToAPI(configuration, stats)
