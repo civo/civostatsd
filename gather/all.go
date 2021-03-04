@@ -21,5 +21,5 @@ func All() Stats {
 }
 
 func (s Stats) String() string {
-	return fmt.Sprintf("CPU: %.2f%%, Disk: %.2f%%, Memory: %.2f%% - v2.1", s.CPU, s.Disk, s.Memory)
+	return fmt.Sprintf("CPU: %.2f%%, Disk: %.2f%%, Memory: %.2f%% - v2.2", s.CPU, s.Disk, s.Memory)
 }

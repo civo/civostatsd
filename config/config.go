@@ -9,9 +9,10 @@ import (
 
 //Config is the struct to save the config from the file
 type Config struct {
-	Server string
-	Token  string
-	Region string
+	Server     string
+	Token      string
+	Region     string
+	InstanceID string `toml:"instance_id"`
 }
 
 // Load is the function to load the config and put into the struct

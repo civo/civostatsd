@@ -19,6 +19,7 @@ func ToAPI(configuration config.Config, s gather.Stats) {
 	form := url.Values{}
 	form.Add("token", configuration.Token)
 	form.Add("region", configuration.Region)
+	form.Add("instance_id", configuration.InstanceID)
 	form.Add("cpu", fmt.Sprintf("%f", s.CPU))
 	form.Add("memory", fmt.Sprintf("%f", s.Memory))
 	form.Add("disk", fmt.Sprintf("%f", s.Disk))
