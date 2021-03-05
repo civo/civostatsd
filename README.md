@@ -12,6 +12,17 @@ we can't access the stats).
 
 **STATUS:** This project is currently under active development and maintainance.
 
+## Compiling
+
+To compile this project on a Mac for the Linux AMD64 target that we use, you can run the following command:
+
+```
+GOOS="linux" GOARCH="amd64" go build  -ldflags="-s -w" -o civostatsd main.go
+```
+
+This produces a stripped binary which is much smaller than default (6.5MB down to 4.7MB). Then you can use the `upx`
+utility (`brew install upx`) to compress it further, down to ~1.7MB.
+
 ## Removing Civo Statsd
 
 To remove this utility from your instance, you can simply SSH in and run this command:
